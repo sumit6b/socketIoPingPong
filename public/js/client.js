@@ -9,5 +9,6 @@ $("#trigger").on("click", function() {
 })
 
 socket.on('entry', function() {
-	alert('entered');
+	console.log("entered");
+	alert("entered");
 });
