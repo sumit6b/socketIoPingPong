@@ -23,11 +23,11 @@ var cache = {};
 	res.end(content);
  }
  function serveStatic(cache, res, filepath) {
-	if(cache[filepath]) {
-	sendFile(cache[filepath], res, filepath);
-	//console.log("Loaded from Cache");
-	}
-	else { 
+	// if(cache[filepath]) {
+	// sendFile(cache[filepath], res, filepath);
+	// //console.log("Loaded from Cache");
+	// }
+	// else { 
 		fs.open(filepath, 'r', function(err) {
 		
 			if(err) {
@@ -36,14 +36,14 @@ var cache = {};
 			else {
 			
 				fs.readFile(filepath, function(err, data) {
-					cache[filepath] = data;
+					// cache[filepath] = data;
 					sendFile(data, res, filepath);
 					//console.log("Loaded from Disk");
 				});
 			}
 			
 		});
-	}
+	// }
  }
  var server = http.createServer(function(req, res) {
 	 var filepath = '';
